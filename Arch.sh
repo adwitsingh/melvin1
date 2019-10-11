@@ -1,24 +1,26 @@
 #!/bin/bash
 # [Quick LAMP install Server Script] (for Arch users)
-#Contributor : ritik-malik
+#Contributor : ritik-malik aur adwit-singh (thoda sa)
 
-# updating the systen
-echo -e \nPacman in Action\n
+# Updating The Systen
+echo -e "\nPacman in Action\n"
 sudo pacman -Syu
 
-# installing apache
+# Installing Apache
+echo -e "\nInstalling Apache...\n"
 sudo pacman -S apache -y
 systemctl enable httpd
 systemctl restart httpd
 
-# install Mysql server
+# Install Mysql Server
 echo -e "\nInstalling Mysql server...\n"
 sudo pacman -S mariadb -y
 mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 systemctl start mariadb
 systemctl enable mariadb
 
-# install php
+# Install PHP
+echo -e "\nInstalling PHP...\n"
 sudo pacman -S php php-apache -y
 systemctl restart httpd
 
